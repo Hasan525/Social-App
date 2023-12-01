@@ -35,9 +35,6 @@ fun LoginScreen(
     uiState: LoginUiState,
     onEmailChange: (String) -> Unit,
     onPasswordChange: (String) -> Unit,
-    onNavigateToHome: () -> Unit,
-    onSignInClick: () -> Unit,
-    onNavigateToSignup: () -> Unit
 ) {
     Column(
         modifier = modifier
@@ -76,7 +73,7 @@ fun LoginScreen(
 
         Button(
             onClick = {
-                onSignInClick()
+
             },
             modifier = modifier
                 .fillMaxWidth()
@@ -99,9 +96,6 @@ fun LoginScreenPreview() {
             uiState = LoginUiState(),
             onEmailChange = {},
             onPasswordChange = {},
-            onNavigateToHome = {},
-            onSignInClick = {},
-            onNavigateToSignup = {}
         )
     }
 }
