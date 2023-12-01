@@ -1,7 +1,9 @@
 plugins {
     id("com.android.application")
     kotlin("android")
-    id ("com.google.devtools.ksp") version "1.8.21-1.0.11"
+    id("com.google.devtools.ksp") version "1.8.0-1.0.8"
+    //Kotlinx Serialization
+    kotlin("plugin.serialization") version "1.8.20"
 }
 
 android {
@@ -18,9 +20,9 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.7"
+        kotlinCompilerExtensionVersion = "1.4.0"
     }
-    packaging {
+    packagingOptions {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
@@ -37,6 +39,13 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    applicationVariants.all {
+        addJavaSourceFoldersToModel(
+            File(buildDir, "generated/ksp/$name/kotlin")
+        )
+    }
+
 }
 
 dependencies {
