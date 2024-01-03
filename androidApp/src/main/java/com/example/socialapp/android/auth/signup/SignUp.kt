@@ -1,6 +1,7 @@
 package com.example.socialapp.android.auth.signup
 
 import androidx.compose.runtime.Composable
+import com.example.socialapp.android.auth.destinations.LoginDestination
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import org.koin.androidx.compose.koinViewModel
@@ -15,6 +16,9 @@ fun SignUp(
         uiState = viewModel.uiState,
         onUsernameChange = viewModel::updateUsername,
         onEmailChange = viewModel::updateEmail,
-        onPasswordChange = viewModel::updatePassword
+        onPasswordChange = viewModel::updatePassword,
+        onNavigateToLogin = {
+            navigator.navigate(LoginDestination)
+        }
     )
 }

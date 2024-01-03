@@ -35,8 +35,9 @@ fun SignUpScreen(
     uiState: SignUpUiState,
     onUsernameChange: (String) -> Unit,
     onEmailChange: (String) -> Unit,
-    onPasswordChange: (String) -> Unit
-){
+    onPasswordChange: (String) -> Unit,
+    onNavigateToLogin: () -> Unit
+) {
 
     Column(
         modifier = modifier
@@ -82,7 +83,8 @@ fun SignUpScreen(
 
         Button(
             onClick = {
-
+                println("SignUp: onNavigateToLogin function called")
+                onNavigateToLogin()
             },
             modifier = modifier
                 .fillMaxWidth()
@@ -107,7 +109,8 @@ fun SignUpScreenPreview() {
             uiState = SignUpUiState(),
             onUsernameChange = {},
             onEmailChange = {},
-            onPasswordChange = {}
+            onPasswordChange = {},
+            onNavigateToLogin = {}
         )
     }
 }
